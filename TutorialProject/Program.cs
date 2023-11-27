@@ -14,14 +14,10 @@ builder.Services.AddScoped<ApplicationDbContext>();
 //builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
 
 
-//MySQL DB Conn
-var _GetConnStringName = builder.Configuration.GetConnectionString("DefaultConnectionMySQL");
-//var builder = WebApplication.CreateBuilder(args);
-
 // Connect to database
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionMySQL"));
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 //builder.Services.AddDbContextPool<ApplicationDbContext>(options => options.UseMySql(_GetConnStringName, ServerVersion.AutoDetect(_GetConnStringName)));
 
